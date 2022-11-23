@@ -44,7 +44,7 @@ public class EntryController {
         description = "Creates a new applicationuser and returns the newly added applicationuser."
     )
     public ApplicationUser create(ApplicationUser applicationuser) {
-       return entryService.createApplicationUser(applicationuser);
+        return entryService.createApplicationUser(applicationuser);
     }
 
     @DELETE
@@ -64,6 +64,7 @@ public class EntryController {
     )
     @Path("/{entryId}")
     public ApplicationUser update(@PathParam("entryId")Long id, ApplicationUser applicationuser){
+        applicationuser.setId(id);
         return entryService.updateApplicationUser(id, applicationuser); 
     }
 
