@@ -13,6 +13,9 @@ public class ApplicationUser {
         @Schema(readOnly = true)
         private Long id;
 
+        @Schema(readOnly = true)
+        private boolean adminRights;
+
         @Column(nullable = false)
         private String vorname;
 
@@ -31,6 +34,14 @@ public class ApplicationUser {
 
         public void setId(Long id) {
                 this.id = id;
+        }
+
+        public boolean getAdminRights() {
+                return adminRights;
+        }
+
+        public void setAdminRights(boolean adminRights) {
+                this.adminRights = adminRights;
         }
 
         public void setVorname(String vorname) {
