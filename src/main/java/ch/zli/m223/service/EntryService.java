@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import ch.zli.m223.model.Entry;
+import ch.zli.m223.application_user.ApplicationUser;
 
 @ApplicationScoped
 public class EntryService {
@@ -15,25 +15,25 @@ public class EntryService {
     private EntityManager entityManager;
 
     @Transactional
-    public Entry createEntry(Entry entry) {
-        entityManager.persist(entry);
-        return entry;
+    public ApplicationUser createApplicationUser(ApplicationUser applicationuser) {
+        entityManager.persist(applicationuser);
+        return applicationuser;
     }
 
-    public List<Entry> findAll() {
-        var query = entityManager.createQuery("FROM Entry", Entry.class);
+    public List<ApplicationUser> findAll() {
+        var query = entityManager.createQuery("FROM ApplicationUser", ApplicationUser.class);
         return query.getResultList();
     }
 
     @Transactional
-    public void deleteEntry(Long id){
-        var entity = entityManager.find(Entry.class, id);
+    public void deleteApplicationUser(Long id){
+        var entity = entityManager.find(ApplicationUser.class, id);
         entityManager.remove(entity);
     }
 
     @Transactional
-    public Entry updateEntry(Long id, Entry entry) {
-        return entityManager.merge(entry);
+    public ApplicationUser updateApplicationUser(Long id, ApplicationUser applicationuser) {
+        return entityManager.merge(applicationuser);
     }
 
 }

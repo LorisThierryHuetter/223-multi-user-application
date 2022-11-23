@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
-import ch.zli.m223.model.Entry;
+import ch.zli.m223.application_user.ApplicationUser;
 import ch.zli.m223.service.EntryService;
 
 @Path("/entries")
@@ -32,7 +32,7 @@ public class EntryController {
         summary = "Index all Entries.", 
         description = "Returns a list of all entries."
     )
-    public List<Entry> index() {
+    public List<ApplicationUser> index() {
         return entryService.findAll();
     }
 
@@ -40,31 +40,31 @@ public class EntryController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Creates a new entry.", 
-        description = "Creates a new entry and returns the newly added entry."
+        summary = "Creates a new applicationuser.", 
+        description = "Creates a new applicationuser and returns the newly added applicationuser."
     )
-    public Entry create(Entry entry) {
-       return entryService.createEntry(entry);
+    public ApplicationUser create(ApplicationUser applicationuser) {
+       return entryService.createApplicationUser(applicationuser);
     }
 
     @DELETE
     @Path("/{entryId}")
     @Operation(
-        summary = "Deletes Entry.", 
-        description = "Deletes an entry."
+        summary = "Deletes ApplicationUser.", 
+        description = "Deletes an applicationuser."
     )
     public void delete (@PathParam("entryId")Long id){
-        entryService.deleteEntry(id);
+        entryService.deleteApplicationUser(id);
     }
 
     @PUT
     @Operation(
-        summary = "Updates Entry",
-        description = "Updates the Entry"
+        summary = "Updates ApplicationUser",
+        description = "Updates the ApplicationUser"
     )
     @Path("/{entryId}")
-    public Entry update(@PathParam("entryId")Long id, Entry entry){
-        return entryService.updateEntry(id, entry); 
+    public ApplicationUser update(@PathParam("entryId")Long id, ApplicationUser applicationuser){
+        return entryService.updateApplicationUser(id, applicationuser); 
     }
 
 }

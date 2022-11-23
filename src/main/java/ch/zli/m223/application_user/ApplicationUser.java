@@ -33,27 +33,35 @@ public class ApplicationUser {
                 this.id = id;
         }
 
-        public void setVorname() {
+        public void setVorname(String vorname) {
                 this.vorname = vorname;
         }
 
-        public String getVorname(String vorname) {
+        public String getVorname() {
                 return vorname;
         }
 
-        public void setNachname() {
+        public void setNachname(String nachname) {
                 this.nachname = nachname;
         }
 
-        public String getNachname(String nachname) {
+        public String getNachname() {
                 return nachname;
         }
 
-        public void setEmail() {
+        public void setEmail(String email) {
                 this.email = email;
         }
 
-        public String getEmail(String email) {
+        public String getEmail() {
                 return email;
+        }
+
+        public void setPassword(String password) {
+                this.password = password;
+        }
+
+        public String getPassword() {
+                return password;
         }
 }
