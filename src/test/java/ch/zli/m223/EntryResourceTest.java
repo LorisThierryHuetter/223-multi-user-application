@@ -26,7 +26,6 @@ public class EntryResourceTest {
     public void testCreateEndpoint() {
         
 
-        System.out.println("TEST is empty?" + given().when().get("/entries").then().statusCode(200).body(is("[]")));
         var applicationuser = new ApplicationUser();
         applicationuser.setVorname("Joe");
         applicationuser.setNachname("Biden");
