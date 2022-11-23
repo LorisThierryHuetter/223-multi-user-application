@@ -44,6 +44,12 @@ public class EntryController {
         description = "Creates a new applicationuser and returns the newly added applicationuser."
     )
     public ApplicationUser create(ApplicationUser applicationuser) {
+        System.out.println("TEST is find: " + entryService.findAll().getClass());
+        if (entryService.findAll().isEmpty()) {
+            applicationuser.setAdminRights(true);
+        } else {
+            applicationuser.setAdminRights(false);
+        }
         return entryService.createApplicationUser(applicationuser);
     }
 
